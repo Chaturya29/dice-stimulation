@@ -1,25 +1,12 @@
-# dice-stimulation
-# Adding label into the frame
-BlankLine = tkinter.Label(root, text="")
-BlankLine.pack()
-
-# adding label with different font and formatting
-HeadingLabel = tkinter.Label(root, text="Hello from DataFlair!",
-   fg = "light green",
-     bg = "dark green",
-     font = "Helvetica 16 bold italic")
-HeadingLabel.pack()
-
-# images
-dice = ['die1.png', 'die2.png', 'die3.png', 
-    'die4.png', 'die5.png', 'die6.png']
-# simulating the dice with random numbers between
-# 0 to 6 and generating image
-DiceImage = ImageTk.PhotoImage(Image.open(random.choice(dice)))
-
-# construct a label widget for image
-ImageLabel = tkinter.Label(root, image=DiceImage)
-ImageLabel.image = DiceImage
-
-# packing a widget in the parent widget 
-ImageLabel.pack( expand=True)
+import random
+from tkinter import *
+root=Tk()
+root.geometry("750x450")
+l1=Label(root,font=("times",200))
+def roll():
+    number=['\u2680','\u2681','\u2682','\u2683','\u2684','\u2685']
+    l1.config(text=f'{random.choice(number)}{random.choice(number)}')
+    l1.pack()
+b1=Button(root,text="lets roll...",command=roll)
+b1.place(x=330,y=0)
+root.mainloop()   
